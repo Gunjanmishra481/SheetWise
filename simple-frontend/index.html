@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TermSheet Validator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-file-contract"></i>
+                <h1>TermSheet Validator</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-history"></i> History</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="upload-section" id="uploadSection">
+                <h2>Upload Term Sheet</h2>
+                <p class="subtitle">Upload your term sheet for AI-powered validation and analysis</p>
+                
+                <div id="uploadBox" class="upload-box">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag & Drop your file here</h3>
+                    <p>or</p>
+                    <label for="fileInput" class="upload-btn">Browse Files</label>
+                    <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.txt" style="display: none;">
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <p class="subtitle">Supported formats: PDF, Word, Excel, JPEG, PNG, TXT</p>
+                </div>
+                
+                <div id="selectedFileContainer" class="selected-file" style="display: none;">
+                    <div class="file-info">
+                        <i class="fas fa-file-pdf"></i>
+                        <div class="file-details">
+                            <p id="fileName">Document.pdf</p>
+                            <p id="fileSize">2.5 MB</p>
+                        </div>
+                    </div>
+                    <button id="validateBtn" class="validate-btn">Validate Term Sheet</button>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <div class="validation-summary">
+                        <i id="validationStatusIcon" class="fas fa-exclamation-triangle" style="color: #ff9800;"></i>
+                        <div class="summary-details">
+                            <h3 id="validationStatus">Validation Warning</h3>
+                            <p id="validationMessage">This term sheet has minor issues that should be reviewed.</p>
+                        </div>
+                    </div>
+                    <button id="chatToggleBtn" class="chat-toggle-btn">
+                        <i class="fas fa-comment-dots"></i> Chat with Assistant
+                    </button>
+                </div>
+                
+                <div class="validation-details">
+                    <div class="risk-score">
+                        <h4>Risk Score</h4>
+                        <div class="score-bar-container">
+                            <div id="scoreBar" class="score-bar" style="width: 45%"></div>
+                        </div>
+                        <div class="score-labels">
+                            <span>Low Risk</span>
+                            <span id="riskScoreValue">45</span>
+                            <span>High Risk</span>
+                        </div>
+                    </div>
+                    
+                    <div class="issues-panel">
+                        <h4>Detected Issues</h4>
+                        <div id="issuesList" class="issues-list">
+                            <!-- Issues will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-section" id="chatSection" style="display: none;">
+                <div class="chat-header">
+                    <h3><i class="fas fa-robot"></i> TermSheet Assistant</h3>
+                    <button id="closeChatBtn"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="chatMessages" class="chat-messages">
+                    <!-- Chat messages will be dynamically added here -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Type your question here...">
+                    <button id="sendMessageBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 TermSheet Validator | Banking & Finance Solutions</p>
+        </footer>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p id="loadingMessage">Analyzing term sheet...</p>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
